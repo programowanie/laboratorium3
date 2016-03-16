@@ -1,12 +1,23 @@
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
 
-bool function()
+//int gcd (int a, int b);
+
+struct fraction
 {
-	return true;
-}
+
+};
 
 int main(int argc, char **argv)
 {
-	assert(function());
+	fraction *fractions;
+
+	/*
+	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
+		printf("[%i] %2i / %2i\n", 
+			i, 
+			fractions[i].nominator, 
+			fractions[i].denominator);
+	*/
 }
