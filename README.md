@@ -1,7 +1,7 @@
 #Laboratorium 2
 ## Struktura ułamka
 
-##Ocena dostateczna
+###Ocena dostateczna
 - Zadeklaruj strukturę `fraction`, składającą się z:
     - licznika i mianownika, jako zmiennych typu `int`,
     - funkcji `is_correct`, typu `bool`.
@@ -13,11 +13,11 @@
     - zadeklaruj dynamiczny `n`-elementowy łańcuch typu `fraction`,
     - wypełnij go losowymi wartościami z przedziału `<-9;9>`
 
-##Ocena dobra
+###Ocena dobra
 - Używając funkcji `assert()`, przekazując do niej wynik funkcji `is_correct()`, sprawdź, czy wszystkie wylosowane ułamki są poprawne.
 - Uzupełnij pętlę, w której losowane były wartości ułamków o zagnieżdżoną pętlę *do while*, sprawdzającą poprawność ułamka po wygenerowaniu, aby wszystkie testy przeszły pomyślnie.
 
-##Ocena bardzo dobra
+###Ocena bardzo dobra
 - Napisz funkcję `gcd()`, odnajdującą największy wspólny dzielnik dwóch liczb całkowitych i użyj jej w napisanej przez Ciebie funkcji `shorten()`, będącej częścią struktury `fraction()`, do skracania ułamka.
 
 ## Dokumentacja
