@@ -1,5 +1,6 @@
 #Laboratorium 2
 ## Struktura ułamka
+>   W dzisiejszym zadaniu tworzymy strukturę, posiadającą zarówno dane, jak funkcje. Uczymy się również, jak testować poprawność programu, wykorzystując funkcję assert().
 
 ###Ocena dostateczna
 - Zadeklaruj strukturę `fraction`, składającą się z:
