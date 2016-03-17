@@ -49,8 +49,6 @@ int main(int argc, char **argv)
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
-	fraction s= fractions[3].shorten();
-	printf("[3] %2i/ %2i\n",s.nominator,s.denominator);
 
 delete []fractions ;
 }
