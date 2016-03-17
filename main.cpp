@@ -12,7 +12,7 @@ struct fraction
 
 	bool is_correct()
 	{	//a ? b : c
-		//return (nominator > denominator && denominator!=0) ? true : false;
+		return (nominator > denominator && denominator!=0) ? true : false;
 	}
 };
 
@@ -26,8 +26,12 @@ int main(int argc, char **argv)
 	
 	for (int i = 0; i < n; i++)
 	{
-		fractions[i].nominator=rand()%19-9;
-		fractions[i].denominator=rand()%19-9;	
+		do
+		{
+			fractions[i].nominator=rand()%19-9;
+			fractions[i].denominator=rand()%19-9;	
+		}
+		while(!fractions[i].is_correct());
 	}
 
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
