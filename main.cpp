@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 		fractions[i].nominator=rand()%19-9;
 		fractions[i].denominator=rand()%19-9;
 		do{
-			/*if(fractions[i].is_correct()==false)*/
+			
 				fractions[i].nominator=rand()%19-9;
 				fractions[i].denominator=rand()%19-9;
 		}while(fractions[i].is_correct()==false); 
