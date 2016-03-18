@@ -45,7 +45,6 @@ int main(int argc, char **argv)
 				fractions[i].denominator = rand()% 19 - 9;
 			} while (!fractions[i].is_correct()); //W ten sposób wszystkie ułamki będą spełniały warunki
 
-			printf("nominator: %d  denominator: %d \n", fractions[i].nominator, fractions[i].denominator); //DEBUG - jak wyglądały ułamki przed skróceniem?
 			fractions[i].shorten(); //Skracamy ułamki
 		} 
 
