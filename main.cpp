@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 
 int gcd(int a, int b)
 {
-	int pom;
+    int pom;
  
     while(b!=0)
     {
@@ -67,6 +67,5 @@ int gcd(int a, int b)
     	b = a%b;
     	a = pom;  
     }
-
-	return a;
+    return a;
 }
