@@ -3,6 +3,7 @@
 #include <time.h>
 
 //int gcd (int a, int b);
+//komentarz
 
 struct fraction
 {
