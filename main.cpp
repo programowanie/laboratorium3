@@ -7,7 +7,7 @@
 
 struct fraction
 {
-	int nominator, denominator;
+	signed int nominator, denominator;
 
 	bool is_correct()
 	{
