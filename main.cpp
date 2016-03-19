@@ -7,11 +7,11 @@
 
 struct fraction
 {
-	int nominator, denominator;
+	unsigned int nominator, denominator;
 
 	bool is_correct()
 	{
-		return(denominator!=0 && nominator<denominator) ? true : false;
+		return(denominator==0 || nominator>=denominator || nominator==0) ? false : true;
 	}
 };
 
@@ -27,17 +27,20 @@ int main(int argc, char **argv)
 
 	for( int i=0; i<n; i++)
 	{
+		do{
 		fractions[i].nominator=rand()% 19-9;
-		fractions[i].denominator=rand()% 19-9;
-	}
+		fractions[i].denominator=rand()% 19-9;}
+		while(fractions[i].denominator==0 || fractions[i].nominator>=fractions[i].denominator || fractions[i].nominator==0);
 
-	for(int i=0; i)
+	};
 
-	/*
-	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
+	for (int i = 0; i < n; i++)
+	{
+		assert(fractions[i].is_correct());
 		printf("[%i] %2i / %2i\n", 
-			i, 
+			i+1, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
-	*/
+	}
+	
 }
