@@ -29,6 +29,7 @@ int main(int argc, char** argv)
 		fractions[i].n==0?printf("0\n"):printf("%d/%d\n", fractions[i].n, fractions[i].d);
 	}
 	delete []fractions;
+	printf("XD\n");
 }
 
 int gcd(int x, int y)
