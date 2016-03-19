@@ -3,8 +3,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-//int gcd (int a, int b);
-
 struct fraction
 {
 	signed int nominator, denominator;
