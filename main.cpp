@@ -21,14 +21,14 @@ struct fraction
 	int nominator, denominator;
 	bool is_correct()
 	{
-		return ((denominator!=0)&&(abs(nominator)<abs(denominator)) ? true : false);
+		return ((denominator!=0)&&(abs(nominator)<abs(denominator)) ? true : false);//wartość bezwzlędna jest po to aby wychodzły tylko ułamki właściwe
 	}
 	void shorten()
 	{
 		int aux=gcd(nominator, denominator);
 		nominator=nominator/aux;
 		denominator=denominator/aux;
-		if(denominator<0)
+		if(denominator<0)//mnożenie przez -1 aby minus stał zawsze przy mianowniku, albo aby zniknął
 		{
 			nominator=nominator*(-1);
 			denominator=denominator*(-1);
