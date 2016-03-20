@@ -25,10 +25,14 @@ struct fraction
 	}
 	void shorten()
 	{
-		printf("gcd= %d\n", gcd(nominator, denominator));
 		int aux=gcd(nominator, denominator);
 		nominator=nominator/aux;
 		denominator=denominator/aux;
+		if(denominator<0)
+		{
+			nominator=nominator*(-1);
+			denominator=denominator*(-1);
+		}
 	}
 };
 
