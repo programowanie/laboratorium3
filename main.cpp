@@ -2,15 +2,33 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <time.h>
+#include <math.h>
 
-//int gcd (int a, int b);
+int gcd (int a, int b)
+{
+	int aux;
+	while(b!=0)
+	{
+		aux=b;
+		b=a%b;
+		a=aux;
+	}
+	return a;
+}
 
 struct fraction
 {
 	int nominator, denominator;
 	bool is_correct()
 	{
-		return ((denominator!=0)&&(nominator<denominator) ? true : false);
+		return ((denominator!=0)&&(abs(nominator)<abs(denominator)) ? true : false);
+	}
+	void shorten()
+	{
+		printf("gcd= %d\n", gcd(nominator, denominator));
+		int aux=gcd(nominator, denominator);
+		nominator=nominator/aux;
+		denominator=denominator/aux;
 	}
 };
 
@@ -28,6 +46,7 @@ int main(int argc, char **argv)
 			fractions[i].nominator=-9+rand()%+19;
 			fractions[i].denominator=-9+rand()%+19;
 		}while(!(fractions[i].is_correct()));
+		fractions[i].shorten();
 	}
 
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
@@ -35,5 +54,7 @@ int main(int argc, char **argv)
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
+
+	delete [] fractions;
 	
 }
