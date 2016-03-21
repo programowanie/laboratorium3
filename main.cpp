@@ -8,7 +8,7 @@ int gcd (int a, int b);  //szuka najwiekszego wspolnego dzielnika, algorytm Eukl
 fraction* createFraction(int n); //alokuje i wypelnia tablice ulamkow
 void drawFraction (fraction* fractions, int n);  //wypisuje ulamki
 void storageFree(fraction* fractions); //zwalnia pamiec
-
+void fErr1(); //gdy nie znaleziono argumentow
 
 struct fraction
 {
@@ -31,6 +31,12 @@ struct fraction
 		nominator=nominator/divider;
 		denominator=denominator/divider;
 	}
+
+	void sign_corrector()  //funkcja ta wyciaga minus przed caly ulamek lub usuwa go gdy obie czesci ulamka sa ujemne
+	{
+		if (nominator>=0 && denominator<0) {nominator+=-1; denominator*=-1;}
+		if (nominator<0 && denominator<0) {nominator*=-1; denominator*=-1;}
+	}
 };
 
 int main(int argc, char **argv)
@@ -38,15 +44,19 @@ int main(int argc, char **argv)
 	fraction *fractions;
 	int n;
 
+	if (argc==1) fErr1();
+
 	srand(time(0));
-	if (argc==2) {n=atoi(argv[1]);}
+	if (argc==2)
+	{
+		n=atoi(argv[1]);
 
-	fractions=createFraction(n);
+		fractions=createFraction(n);
 
-	drawFraction(fractions, n);
+		drawFraction(fractions, n);
 	
-	for (int i=0; i<n; gcd(fractions[i].nominator, fractions[i++].denominator));
-
+		for (int i=0; i<n; gcd(fractions[i].nominator, fractions[i++].denominator));
+	}
 }
 
 int gcd (int a, int b)
@@ -61,6 +71,7 @@ int gcd (int a, int b)
 	}
 	while (mod!=0);
 
+	if (a<0) a*=-1;
 	return a;
 }
 
@@ -85,20 +96,25 @@ fraction* createFraction(int n)
 
 void drawFraction (fraction *fractions, int n)
 {
-
+	printf("\n");
 	for (int i=0; i<n; assert(fractions[i++].is_correct()))
-		printf("[%i] %2i / %2i nwd:%2i\n", 
+		{
+			fractions[i].sign_corrector();
+			printf("[%i] %2i / %i             nwd:%2i\n", 
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator,
 			gcd(fractions[i].nominator,fractions[i].denominator));
-
-	printf("\n");
-	for (int i=0; i<n; fractions[i++].shorten())
-		printf("[%i] %2i / %2i \n", 
+		}
+	printf("\nPo skroceniu: \n\n");
+	for (int i=0; i<n; i++)
+	{
+		fractions[i].shorten();
+		printf("[%i] %2i / %i \n", 
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
+	}	
 	storageFree(fractions);
 
 
@@ -107,4 +123,9 @@ void drawFraction (fraction *fractions, int n)
 void storageFree(fraction* fractions)
 {
 	delete[] fractions;
+}
+
+void fErr1()
+{
+	printf("ERROR: Nie podano argumentow do programu!\n");
 }
