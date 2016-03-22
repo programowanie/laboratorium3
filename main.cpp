@@ -24,6 +24,11 @@ void fraction::shorten()
 		nominator/=x;
 		denominator/=x;
 	}
+	if(nominator<0 && denominator<0)
+	{
+		nominator*=-1;
+		denominator*=-1;
+	}
 }
 
 int main(int argc, char **argv)
@@ -45,37 +50,38 @@ int main(int argc, char **argv)
 				fractions[i].denominator=-9+rand()%(18+1);	
 			}
 		}while(!(fractions[i].is_correct()));
+		
 	}
 
-
+	
 	
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
 		printf("[%i] %2i / %2i\n", 
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
-	
+	printf("po skroceniu \n");
 	for(int i=0;i<n;i++)
 	{
-		if(fractions[i].nominator)
-			{
-				//fractions[i].shorten();
-				printf("[%i] %2i / %2i\n", 
-				i, 
-				fractions[i].nominator, 
-				fractions[i].denominator);
-			}
-			else printf("[%i] %2c \n",i,'0');
+		fractions[i].shorten();
+		printf("[%i] %2i / %2i\n", 
+			i, 
+			fractions[i].nominator, 
+			fractions[i].denominator);
+	}
 
 	
-	}
+	
+	delete []fractions;
 }
 int gcd(int a,int b)
 {
-	while(!(a==b))
+	int x;
+	while(b)
 	{
-		if(a>b)a-=b;
-			else b-=a;
+		x=a;
+		a=b;
+		b=x%b;	
 	}
 	return a;
 }
