@@ -15,9 +15,7 @@ struct fraction
 	{
 		if (denominator!=0 && abs(nominator) < abs(denominator));
 			return true;
-		
-		return false;
-		
+		return false;		
 	}
 
 };
@@ -27,11 +25,8 @@ int main(int argc, char **argv)
 	int n;
 
 	n=atoi(argv[1]);
-
 	fraction *fractions = new fraction[n];
-
 	srand(time(NULL));
-	int a;
 
 	for (int j=0; j<n; j++)
 	{
@@ -39,8 +34,8 @@ int main(int argc, char **argv)
 			{
 				(fractions + j)-> nominator = rand() % 19 - 9;
 				(fractions + j)-> denominator = rand() % 19 - 9;
-
-			} while (fractions[j].denominator==0 || abs(fractions[j].nominator) > abs(fractions[j].denominator));
+			} 
+			while (fractions[j].denominator==0 || abs(fractions[j].nominator) > abs(fractions[j].denominator));
 	}
 
 	
