@@ -9,7 +9,7 @@ struct fraction
 
 	bool is_correct()
 	{
-		return(denominator==0 || nominator>=denominator || nominator==0) ? false : true;
+		return(denominator==0 || nominator>denominator || nominator==0) ? false : true;
 	}
 };
 
@@ -28,7 +28,9 @@ int main(int argc, char **argv)
 		do{
 		fractions[i].nominator=rand()% 19-9;
 		fractions[i].denominator=rand()% 19-9;}
-		while(fractions[i].denominator==0 || fractions[i].nominator>=fractions[i].denominator || fractions[i].nominator==0);
+		while(	fractions[i].denominator==0 ||
+				fractions[i].nominator>fractions[i].denominator ||
+				fractions[i].nominator==0);
 
 	};
 
