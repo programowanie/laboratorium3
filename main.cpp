@@ -35,8 +35,7 @@ int main(int argc, char **argv)
 		printf("[%i] %2i / %2i\n", 
 			i, 
 			fractions[i].nominator, 
-			fractions[i].denominator);
-	
+			fractions[i].denominator);	
 }
 
 int gcd(int a, int b)
@@ -60,9 +59,6 @@ int gcd(int a, int b)
 
 bool fraction::is_correct()
 	{	//absolute values solves problem of -9/1 considered as correct fraction
-		
-		//printf("nominator=%i - denominator = %i\n",nominator,denominator );
-
 		return 
 		(abs(nominator) < abs(denominator) 
 		&& denominator!=0) ? true : false;
