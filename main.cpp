@@ -3,13 +3,18 @@
 #include <assert.h>
 #include <time.h>
 
-//int gcd (int a, int b);
+int gcd (int a, int b);
 
 struct fraction
 {
 	int nominator, denominator;
 	bool is_correct(){
 		return (denominator!=0&&nominator<denominator)?true:false;
+	}
+	void shorten(){
+		int divider = gcd(abs(nominator), abs(denominator));
+		nominator /= divider;
+		denominator /= divider;
 	}
 };
 fraction *fill_fractions(int n);
@@ -35,7 +40,11 @@ fraction *fill_fractions(int n){
 		do{
 		fractions[i].nominator=rand()%19-9;
 		fractions[i].denominator=rand()%19-9;
-		}while(fractions[i].is_correct());
+		}while(!fractions[i].is_correct());
+		fractions[i].shorten();
 	}
 	return fractions;
+}
+int gcd(int a, int b){
+	return a==0?1:a!=b?gcd(a>b?a-b:a,b>a?b-a:b):a;
 }
