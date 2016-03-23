@@ -129,3 +129,6 @@ void fErr1()
 {
 	printf("ERROR: Nie podano argumentow do programu!\n");
 }
+
+
+// Aleksy Bernat 226023
