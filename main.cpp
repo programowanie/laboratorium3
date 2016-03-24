@@ -44,52 +44,53 @@ int main(int argc, char **argv)
 	
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
 	{
-		printf("[%i] %2i / %2i\n", 
+		/*printf("[%i] %2i / %2i\n", 
 			i, 
 			fractions[i].numerator, 
 			fractions[i].denominator);
+		*/
 
 
 
-		fractions[i].shorten();
-		printf("[%i] %2i / %2i\n", 
-			i, 
-			fractions[i].numerator, 
-			fractions[i].denominator);
+			fractions[i].shorten();
+			printf("[%i] %2i / %2i\n", 
+				i, 
+				fractions[i].numerator, 
+				fractions[i].denominator);
 
+		}
 	}
-}
 	//a=numerator, b=denominator
-int gcd (int a, int b)
-{
-	a=abs(a);
-	b=abs(b);
-	int gcd=1;
-
-
-	if(a==0)
+	int gcd (int a, int b)
 	{
-		return 0;
+		a=abs(a);
+		b=abs(b);
+		int gcd=1;
 
-	}
-	
-	else if(0==(b%a))
-	{
-		return a;
-	}
-	else
-	{
-		int step=2;
 
-		while(step<=sqrt(b))
+		if(a==0)
 		{
+			return 0;
 
-			if((a%step==0) && (b%step==0))
-				gcd*=step;
-
-			step++;
 		}
 
-		return gcd;
+		else if(0==(b%a))
+		{
+			return a;
+		}
+		else
+		{
+			int step=2;
+
+			while(step<=sqrt(b))
+			{
+
+				if((a%step==0) && (b%step==0))
+					gcd*=step;
+
+				step++;
+			}
+
+			return gcd;
+		}
 	}
-}
