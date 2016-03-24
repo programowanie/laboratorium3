@@ -12,6 +12,12 @@ struct fraction
 	{
 		return (denominator != 0 && abs(nominator) < abs(denominator) ? true : false); 
 	}
+
+	void shorten()
+	{
+		nominator = nominator / gcd(nominator, denominator);
+		denominator = denominator / gcd(nominator, denominator);
+	}
 };
 
 int main(int argc, char **argv)
@@ -25,27 +31,29 @@ int main(int argc, char **argv)
 	{
 		do 
 		{
-			fractions[i].nominator = rand()%18 - 19;
-			fractions[i].denominator = rand()%18 - 19;
-		}while(fraction[i].is_correct() == false)
+			fractions[i].nominator = rand()%19 - 9;
+			fractions[i].denominator = rand()%19 - 9;
+		}while(fractions[i].is_correct() == false);
 	}
 	
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
 	{
+		fractions[i].shorten();
 		printf("[%i] %2i / %2i\n", 
-			i, 
+			i,
 			fractions[i].nominator, 
-			fractions[i].denominator;
+			fractions[i].denominator);
 	}
 }
 int gcd (int a, int b)
 {
-	while(a != b)
-	{
-		if(a > b)
-			a -= b;
-		else
-			b -= a;
-		return a;
-	}
+    int buf;
+ 
+  	while(b != 0)
+    {
+    	buf = b;
+    	b = a%b;
+   		a = buf;  
+ 	}
+    return a;
 }
