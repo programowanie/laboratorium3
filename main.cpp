@@ -2,22 +2,36 @@
 #include <assert.h>
 #include <time.h>
 
+#include <stdlib.h> //[S]Rand
+
+
 //int gcd (int a, int b);
 
 struct fraction
 {
-
+	int nominator, denominator;
+	bool is_correct(int nom, int denom) {
+		return (denom != 0 && nom < denom) ? true : false;
+	}
 };
 
 int main(int argc, char **argv)
 {
-	fraction *fractions;
-
-	/*
-	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
+	srand(time(NULL));
+	int n = atoi(argv[1]);
+	fraction *frs = new fraction[n];
+	for (int i=0; i < n; i++) {
+		do {
+			frs[i].nominator = rand() % 18 -9;
+			frs[i].denominator = rand() % 18 -9;
+		}
+		while(!(frs[i].is_correct(frs[i].nominator, frs[i].denominator)));
+		printf("%d/%d\n", frs[i].nominator, frs[i].denominator);
+	}
+	for (int i = 0; i < n; assert(frs[i++].is_correct(frs[i].nominator, frs[i].denominator))) {
 		printf("[%i] %2i / %2i\n", 
 			i, 
-			fractions[i].nominator, 
-			fractions[i].denominator);
-	*/
+			frs[i].nominator, 
+			frs[i].denominator);
+	}
 }
