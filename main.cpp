@@ -14,7 +14,7 @@ int gcd (int a, int b) {
 		a = b;
 		b = c;
 	}
-	return abs(a); // dzielnik via euklides, patrz adnotacja.
+	return abs(a); // dzielnik via euklides + MODUŁ, patrz komentarz na dole.
 }
 
 struct fraction
@@ -62,6 +62,7 @@ int main(int argc, char **argv)
 *	W funkcji shorten po prostu dzielimy licznik i mianownik przez otrzymany wspolny dzielnik. Ale co, gdy jest on ujemny?
 *	Z wejsciowych danych: -3/6 (poprawny ulamek) zrobi 1/-2 (niespelniajacy zalozen is_correct) i bedzie losowal kolejne liczby...
 *	...mimo tego, ze na wejsciu byly dobre dane. W koncu wylosowane zostana liczby spelniajace test i bedzie to niezauwazone.
+*	By to sprawdzic, wystarczy usunac abs w funkcji gcd, wykomentowac linie 43 i 45, zakomentowac linie 48.
 *	Trzeba wiec dzielic przez modul z NWD - mozna to zrobic w funkcji shorten, mozna w funkcji gcd.
 *
 *	Przepraszam, ze sie rozpisalem, ale swiadomosc, ze cos nie do konca jest dobrze, ale olac to bo przechodzi testy, srednio mnie satysfakcjonuje :)
