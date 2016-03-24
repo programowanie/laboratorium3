@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 	}
 }
 
-/*	BARDZO WAZNE: w linii 15 zwracany jest MODUL z dzielnika. Wykorzystano funkcje cmath.
+/*	BARDZO WAZNE: w linii 17 zwracany jest MODUL z dzielnika. Wykorzystano funkcje cmath.
 *	Bez tego program rowniez przechodzi testy i sie normalnie uruchamia, ale zawiera pewien blad (zakladajac powyzsza implementacje).
 *	Powoduje go algorytm Euklidesa (raczej nie moj sposob skracania ulamkow, w koncu i tak trzeba by bylo dzielic przez NWD), gdy pierwszy argument jest liczbą ujemna.
 *	Wersja z odejmowaniem nie uruchamia sie w ogole, a z operacjami modulo zwraca dzielnik ujemny.
