@@ -22,5 +22,5 @@
 - Napisz funkcję `gcd()`, odnajdującą największy wspólny dzielnik dwóch liczb całkowitych i użyj jej w napisanej przez Ciebie funkcji `shorten()`, będącej częścią struktury `fraction()`, do skracania ułamka.
 
 ## Dokumentacja
-- [assert()](11http://www.cplusplus.com/reference/cassert/assert/)
+- [assert()](http://www.cplusplus.com/reference/cassert/assert/)
 - [srand()](http://www.cplusplus.com/reference/cstdlib/srand/)
