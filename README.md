@@ -13,7 +13,7 @@
     - pobierz liczbę całkowitą `n`, jako argument wiersza poleceń,
     - zadeklaruj dynamiczny `n`-elementowy łańcuch typu `fraction`,
     - wypełnij go losowymi wartościami z przedziału `<-9;9>`
-
+    
 ###Ocena dobra
 - Używając funkcji `assert()`, przekazując do niej wynik funkcji `is_correct()`, sprawdź, czy wszystkie wylosowane ułamki są poprawne.
 - Uzupełnij pętlę, w której losowane były wartości ułamków o zagnieżdżoną pętlę *do while*, sprawdzającą poprawność ułamka po wygenerowaniu, aby wszystkie testy przeszły pomyślnie.
