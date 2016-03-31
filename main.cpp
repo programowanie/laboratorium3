@@ -28,6 +28,7 @@ int main(int argc, char **argv) {
 	if (argc>=2) {
 		int n = atoi(argv[1]);
 		if (n>0) {
+			srand(time(NULL));
 			fraction *fractions = new fraction[n];
 			for (int i = 0; i < n; i++) {
 				do {
