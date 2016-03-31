@@ -62,6 +62,8 @@ int main(int argc, char **argv)
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
+
+	delete[] fractions;
 }
 
 //Algorytm Euklidesa wykorzystujący funkcję modulo
