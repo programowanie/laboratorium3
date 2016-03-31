@@ -8,36 +8,35 @@
 struct fraction
 { int nominator;
   int denominator;
-  
 };
 
 bool is_correct
 {
-   {return denominator != 0 && nominator < denominator 
+   return denominator != 0 && nominator < denominator
    	? true
-   	: false;}
+   	: false;
 }
 
 int main(int argc, char **argv)
 {
 	int n;
-  n=atoi(argv[1]);
-  srand(time(NULL));
+    n=atoi(argv[1]);
+    srand(time(NULL));
 	fraction *fractions;
-	*fractions = new fraction [n];
+	*fractions = new fractions [n];
+	do{
 	for (int i=0;i<n;i++)
 	{
-		int s;
-		s=(rand()%19)-9;
-		fraction[i]=s;
+		fractions[i].nominator=rand()%19-9;
+		fractions[i].denominator=rand()%19-9;
 
 	}
-  assert(is_correct==true)
-	/*
-	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
+    }while(fractions[i].is_correct()!=0;)
+  
+	for (int i = 0; i < n; assert(fractions[i++].is_correct()!=0))
 		printf("[%i] %2i / %2i\n", 
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
-	*/
+	
 }
