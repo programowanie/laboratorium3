@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 			i, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
+	delete[] fractions;
 }
 
 int gcd (int a, int b)
