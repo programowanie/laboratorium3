@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
-#include <time.h>;
+#include <time.h>
 #include <stdlib.h>
 
 int gcd(int n, int d);
