@@ -51,7 +51,7 @@ fraction fraction::shorten()
 int main(int argc, char **argv)
 {
 
-	int n=10;
+	int n=atoi(argv[1]);
 	fraction *fractions=new fraction[n];
 	srand( time( NULL ) );
 
