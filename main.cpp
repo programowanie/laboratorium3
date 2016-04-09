@@ -1,23 +1,102 @@
 #include <stdio.h>
 #include <assert.h>
 #include <time.h>
+#include <stdlib.h>
+#include <algorithm>
 
-//int gcd (int a, int b);
+using namespace std;
+
+int gcd (int a, int b);
 
 struct fraction
 {
+	int nominator;
+	int denominator;
+	
+	bool is_correct()
+	{
+		bool z;
+		z =( denominator!=0 ?  true: false);
+		
+		if(z==0)
+		{
+			printf("Zly mianownik: %d\n",denominator);
+		}
+
+		return z;
+	}
+
+	void shroten()
+	{
+		int NWD;
+		NWD = gcd (nominator,denominator);
+		
+        printf("nominator: %d\n",nominator);
+        printf("denominator: %d\n\n",denominator); 
+
+		nominator=nominator/NWD;
+		denominator=denominator/NWD;
+		
+
+	}
 
 };
 
 int main(int argc, char **argv)
 {
-	fraction *fractions;
+	int n = atoi(argv[1]);
+	
+	fraction *fractions = new fraction[n];
+	
+	srand (time(NULL));
 
-	/*
+	
+	for(int i=0; i<n; i++)
+	{
+
+		do
+		{
+			fractions[i].nominator = ((rand()%19)+(-9)); 
+			fractions[i].denominator = ((rand()%19)+(-9));
+		}while(fractions[i].is_correct()==0);
+		
+				
+				fractions[i].shroten();	
+	}
+	printf("\n");	
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
 		printf("[%i] %2i / %2i\n", 
-			i, 
+			i+1, 
 			fractions[i].nominator, 
 			fractions[i].denominator);
-	*/
+	delete[] fractions;
+	
+	return 0;
+}
+
+int gcd (int a, int b)
+{
+	if(a!=0 && b!=0)
+	{
+		if (a<0)	
+		{
+			a=a*(-1);
+		}
+		if(b<0)
+		{
+			b=b*(-1);	
+        }		
+		while(a!=b)          
+		{
+			if (a<b)
+			{
+				b=b-a;	
+			} 
+			else 
+			{
+				a=a-b; 
+			}              
+    	}
+	}
+    return a; 
 }
