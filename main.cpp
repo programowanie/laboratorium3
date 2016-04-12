@@ -15,14 +15,8 @@ struct fraction
 	
 	bool is_correct()
 	{
-		bool z;
-		z =( denominator!=0 ?  true: false);
+		bool z =( (abs(denominator)>abs(nominator) && denominator!=0) ?  true: false);
 		
-		if(z==0)
-		{
-			printf("Zly mianownik: %d\n",denominator);
-		}
-
 		return z;
 	}
 
@@ -31,20 +25,20 @@ struct fraction
 		int NWD;
 		NWD = gcd (nominator,denominator);
 		
-        printf("nominator: %d\n",nominator);
-        printf("denominator: %d\n\n",denominator); 
-
-		nominator=nominator/NWD;
-		denominator=denominator/NWD;
+		if(nominator!=0)	
+		{
+	  		    
+			nominator=nominator/NWD;
+			denominator=denominator/NWD;
 		
-
+		}
 	}
 
 };
 
 int main(int argc, char **argv)
 {
-	int n = atoi(argv[1]);
+	int n=atoi(argv[1]);
 	
 	fraction *fractions = new fraction[n];
 	
