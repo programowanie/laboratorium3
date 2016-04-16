@@ -38,7 +38,7 @@ int gcd (int numerator, int denominator)
 int main(int argc, char **argv)
 {
 	srand(time(NULL));
-	int n = atoi(argv[2]);
+	int n = atoi(argv[1]);
 	fraction *fractions = new fraction[n];
 	for (int i = 0; i < n; i++)
 	{
