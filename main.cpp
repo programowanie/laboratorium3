@@ -1,23 +1,36 @@
-#include <stdio.h>
-#include <assert.h>
-#include <time.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cassert>
 
-//int gcd (int a, int b);
+using namespace std;
 
 struct fraction
 {
-
+    int x,y;
+    bool iscorrect();
 };
 
-int main(int argc, char **argv)
+bool fraction::iscorrect()
 {
-	fraction *fractions;
+    return((y!=0)&&(abs(x)<abs(y)))?1:0 ;
+}
 
-	/*
-	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
-		printf("[%i] %2i / %2i\n", 
-			i, 
-			fractions[i].nominator, 
-			fractions[i].denominator);
-	*/
+int main(int argc, char *argv[])
+{
+    int n = atoi(argv[1]);
+    fraction *fract = new fraction [n];
+    srand (time(NULL));
+    for(int i=0;i<n;assert(fract[i++].iscorrect()))
+    {
+        do
+        {
+            fract[i].x=rand()%19-9;
+            fract[i].y=rand()%19-9;
+
+        }while(fract[i].iscorrect()==0);
+                    cout<<fract[i].x<<endl<<fract[i].y<<endl;
+    }
+    delete [] fract;
+
 }
