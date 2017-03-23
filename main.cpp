@@ -15,9 +15,9 @@ int main(int argc, char **argv)
 
 	/*
 	for (int i = 0; i < n; assert(fractions[i++].is_correct()))
-		printf("[%i] %2i / %2i\n", 
-			i, 
-			fractions[i].nominator, 
+		printf("[%i] %2i / %2i\n",
+			i,
+			fractions[i].nominator,
 			fractions[i].denominator);
 	*/
 }
